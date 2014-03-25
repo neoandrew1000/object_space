@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>object space</title>
+	<script src="js/three.min.js"></script>
+	<script src="js/FirstPersonControls.js"></script>
+<style>
+body {
+	background: black;
+}
+</style>
+</head>
+<body>
+
+<script>
+	var scene, camera, render, container, controls;
+		
+	container  = document.createElement('div');
+	document.body.appendChild(container);
+    
+    // Astronomical unit
+	var au = 149598;
+
+	// CAMERA -----------------------
+	camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, au*3);
+	camera.position.z = au + 20;
+	scene  = new THREE.Scene();
+
+	// CONTROLS
+	controls = new THREE.FirstPersonControls( camera );
+
+	controls.movementSpeed = 5000;
+	controls.lookSpeed = 0.1;
+
+	// OBJECTS -----------------------
+	
+	//Stars
+	var stars, starsGeometry, starsMaterial;
+
+	starsGeometry = new THREE.Geometry();
+	starsMaterial = new THREE.ParticleBasicMaterial({color: 0xe6e6fa, size:1, sizeAttenuation: false});
+
+	for(var i = 0; i < 10000; i++){
+		var vertex = new THREE.Vector3();
+		vertex.x = Math.random()*2-1;
+		vertex.y = Math.random()*2-1;
+		vertex.z = Math.random()*2-1;
+		vertex.multiplyScalar(2000);
+		starsGeometry.vertices.push(vertex);
+	}
+	stars = new THREE.ParticleSystem( starsGeometry, starsMaterial );
+	stars.scale.set(400, 600, 800);
+	scene.add(stars);
+
+	// Ecliptic
+	var eclipticGeometry = new THREE.CylinderGeometry( au, au, 1, 32 );
+	var eclipticMaterial = new THREE.MeshBasicMaterial( {color: 0x6c00ff, opacity:0.2, transparent: true} );
+	var ecliptic         = new THREE.Mesh( eclipticGeometry, eclipticMaterial );
+	scene.add( ecliptic );
+
+	// Space Objects
+	var SpaceObject = function (radius, texture, segments, emissive){
+		this.radius   = radius;
+		this.segments = segments;
+		this.emissive = emissive;
+		this.texture  = texture;
+		this.init     = function(){
+			var spaceObjectGeometry  = new THREE.SphereGeometry( this.radius, this.segments, this.segments );
+			var onLoadTexture        = THREE.ImageUtils.loadTexture(this.texture);
+			onLoadTexture.anisotropy = 8;
+			var spaceObjectMaterial  = new THREE.MeshPhongMaterial( { map: onLoadTexture, emissive: this.emissive } );
+			var spaceObjectMesh      = new THREE.Mesh( spaceObjectGeometry, spaceObjectMaterial ); 
+
+			return spaceObjectMesh;
+		}
+	};
+
+
+	
+	// Sun
+	var sun = new SpaceObject( 696, "img/sun_texture.jpg", 30, 0xffffff ).init();
+	scene.add(sun);
+
+	// Mercury
+	var mercury = new SpaceObject( 2.4, "img/mercury_texture.jpg", 18, 0xffffff ).init();
+	scene.add(mercury);
+
+	// Venus
+	var venus = new SpaceObject( 3.003, "img/venus_texture.jpg", 18, 0xffffff ).init();
+	scene.add(venus);
+
+	// Earth
+	var earth = new SpaceObject( 3.135, "img/earth_texture.jpg", 18, 0xffffff ).init();
+	scene.add(earth);
+     
+    // Mars
+	var mars = new SpaceObject( 1.694, "img/mars_texture.jpg", 18, 0xffffff ).init();
+	scene.add(mars);
+
+
+
+	// RENDER -----------------------
+	render = new THREE.WebGLRenderer();
+	render.setSize(window.innerWidth, window.innerHeight);
+	container.appendChild(render.domElement);
+	var t = 0;
+	var y = 0;
+	var x = 0;
+
+	document.addEventListener('mousemove',function (event){
+		y = parseInt(event.offsetY);
+		x = parseInt(event.offsetX);
+	});
+
+	var clock = new THREE.Clock();
+
+	animate();
+
+	// ANIMATION -----------------------
+	function animate(){		
+		requestAnimationFrame(animate);
+		// Sun position
+		sun.rotation.y    += 0.0009;
+
+		// Mercury position
+		mercury.position.x   = -Math.sin(t*0.00001)*(0.38*au);
+		mercury.position.z   = Math.cos(t*0.00001)*(0.38*au);
+		mercury.rotation.y  += 0.01;
+
+		// Venus position
+		venus.position.x   = -Math.sin(t*0.00001)*(0.72*au);
+		venus.position.z   = Math.cos(t*0.00001)*(0.72*au);
+		venus.rotation.y  += 0.01;
+
+		// Earth position
+		earth.position.x   = -Math.sin(t*0.00001)*au;
+		earth.position.z   = Math.cos(t*0.00001)*au;
+		earth.rotation.y  += 0.01;
+
+		// Mars position
+		mars.position.x   = -Math.sin(t*0.00001)*(1.52*au);
+		mars.position.z   = Math.cos(t*0.00001)*(1.52*au);
+		mars.rotation.y  += 0.01;
+
+		// Camera position
+		controls.update( clock.getDelta() );
+		
+		t += Math.PI/180*2;
+		render.render(scene, camera);
+	}
+</script>
+
+</body>
+</html>
