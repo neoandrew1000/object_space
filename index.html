@@ -19,24 +19,29 @@ body {
 		
 	container  = document.createElement('div');
 	document.body.appendChild(container);
+
+	// Extent
+	var extent = 0.00001;
     
     // Astronomical unit
-	var au = 149598;
-
+    var au      = 149598*extent;
+	
 	// CAMERA -----------------------
-	camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, au*70);
-	camera.position.z = au + 20;
+	camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.001*extent, au*150);
+	camera.position.z = au;
+	camera.position.x = 0;
+	camera.position.y = 0;
 	scene  = new THREE.Scene();
 
 	// CONTROLS
 	controls = new THREE.FirstPersonControls( camera );
 
-	controls.movementSpeed = 50000;
+	controls.movementSpeed = 50000*extent;
 	controls.lookSpeed = 0.1;
 
 	// OBJECTS -----------------------
 	
-	//Stars
+	//Font Stars
 	var stars, starsGeometry, starsMaterial;
 
 	starsGeometry = new THREE.Geometry();
@@ -51,18 +56,22 @@ body {
 		starsGeometry.vertices.push(vertex);
 	}
 	stars = new THREE.ParticleSystem( starsGeometry, starsMaterial );
-	stars.scale.set(1000, 1000, 1000);
+	stars.scale.set(1000*extent, 1000*extent, 1000*extent);
 	scene.add(stars);
 
 	// Ecliptic
-	var eclipticLineGeometry = new THREE.CylinderGeometry( au*70, au*70, 1, 8 );
+	var eclipticLineGeometry = new THREE.CircleGeometry( au*70, 3 );
 	var eclipticLineMaterial = new THREE.MeshBasicMaterial( { color: 0xffaa00, wireframe: true } );
 	var eclipticLine         = new THREE.Mesh( eclipticLineGeometry, eclipticLineMaterial );
 	scene.add( eclipticLine );
-	var eclipticPlaneGeometry = new THREE.CylinderGeometry( au*70, au*70, 1, 8 );
-	var eclipticPlaneMaterial = new THREE.MeshBasicMaterial( { color: 0xffaa00, opacity: 0.05, transparent: true } );
-	var eclipticPlane         = new THREE.Mesh( eclipticPlaneGeometry, eclipticPlaneMaterial );
-	scene.add( eclipticPlane );
+	var eclipticUpPlaneGeometry = new THREE.CircleGeometry( au*70, 8);
+	var eclipticUpPlaneMaterial = new THREE.MeshBasicMaterial( { color: 0xffaa00, opacity: 0.05, transparent: true } );
+	var eclipticUpPlane         = new THREE.Mesh( eclipticUpPlaneGeometry, eclipticUpPlaneMaterial );
+	scene.add( eclipticUpPlane );
+	var eclipticDownPlaneGeometry = new THREE.CircleGeometry( au*70, 8);
+	var eclipticDownPlaneMaterial = new THREE.MeshBasicMaterial( { color: 0xffaa00, opacity: 0.05, transparent: true } );
+	var eclipticDownPlane         = new THREE.Mesh( eclipticDownPlaneGeometry, eclipticDownPlaneMaterial );
+	scene.add( eclipticDownPlane );
 
 	// Space Objects
 	var SpaceObject = function (radius, texture, segments, emissive){
@@ -73,7 +82,7 @@ body {
 		this.init     = function(){
 			var spaceObjectGeometry  = new THREE.SphereGeometry( this.radius, this.segments, this.segments );
 			var onLoadTexture        = THREE.ImageUtils.loadTexture(this.texture);
-			onLoadTexture.anisotropy = 8;
+			onLoadTexture.anisotropy = 16;
 			var spaceObjectMaterial  = new THREE.MeshPhongMaterial( { map: onLoadTexture, emissive: this.emissive } );
 			var spaceObjectMesh      = new THREE.Mesh( spaceObjectGeometry, spaceObjectMaterial ); 
 
@@ -82,49 +91,63 @@ body {
 	};
 
 
-	// OBJECTS -----------------------
-
-	// Stars ----
+    // Stars ----
 	// Sun
-	var sun = new SpaceObject( 696, "img/sun_texture.jpg", 30, 0xffffff ).init();
+	var sun = new SpaceObject( 696*extent, "img/sun_texture.jpg", 30, 0xffffff ).init();
 	scene.add(sun);
 
 	// Planets ----
 	// Mercury
-	var mercury = new SpaceObject( 2.4, "img/mercury_texture.jpg", 18, 0xffffff ).init();
+	var mercury = new SpaceObject( 2.4*extent, "img/mercury_texture.jpg", 18, 0xffffff ).init();
 	scene.add(mercury);
 
 	// Venus
-	var venus = new SpaceObject( 3.003, "img/venus_texture.jpg", 18, 0xffffff ).init();
+	var venus = new SpaceObject( 3.003*extent, "img/venus_texture.jpg", 18, 0xffffff ).init();
 	scene.add(venus);
 
 	// Earth
-	var earth = new SpaceObject( 3.135, "img/earth_texture.jpg", 18, 0xffffff ).init();
+	var earth = new SpaceObject( 3.135*extent, "img/earth_texture.jpg", 18, 0xffffff ).init();
 	scene.add(earth);
      
     // Mars
-	var mars = new SpaceObject( 1.694, "img/mars_texture.jpg", 18, 0xffffff ).init();
+	var mars = new SpaceObject( 1.694*extent, "img/mars_texture.jpg", 18, 0xffffff ).init();
 	scene.add(mars);
 
 	// Ceres
-	var ceres = new SpaceObject( 0.35, "img/ceres_texture.jpg", 18, 0xffffff ).init();
+	var ceres = new SpaceObject( 0.35*extent, "img/ceres_texture.jpg", 18, 0xffffff ).init();
 	scene.add(ceres);
 
 	// Jupiter
-	var jupiter = new SpaceObject( 35, "img/jupiter_texture.jpg", 18, 0xffffff ).init();
+	var jupiter = new SpaceObject( 35*extent, "img/jupiter_texture.jpg", 18, 0xffffff ).init();
 	scene.add(jupiter);
 
 	// Saturn
-	var saturn = new SpaceObject( 29, "img/saturn_texture.jpg", 18, 0xffffff ).init();
+	var saturn = new SpaceObject( 29*extent, "img/saturn_texture.jpg", 18, 0xffffff ).init();
 	scene.add(saturn);
 
 	// Uranus
-	var uranus = new SpaceObject( 12, "img/mars_texture.jpg", 18, 0xffffff ).init();
-	scene.add(mars);
+	var uranus = new SpaceObject( 12.5*extent, "img/uranus_texture.jpg", 18, 0xffffff ).init();
+	scene.add(uranus);
 
-	// Mars
-	var mars = new SpaceObject( 1.694, "img/mars_texture.jpg", 18, 0xffffff ).init();
-	scene.add(mars);
+	// Neptune
+	var neptune = new SpaceObject( 12*extent, "img/neptune_texture.jpg", 18, 0xffffff ).init();
+	scene.add(neptune);
+
+	// Pluto
+	var pluto = new SpaceObject( 0.55*extent, "img/pluto_texture.jpg", 18, 0xffffff ).init();
+	scene.add(pluto);
+
+	// Haumea
+	var haumea = new SpaceObject( 0.35*extent, "img/aster_texture.jpg", 18, 0xffffff ).init();
+	scene.add(haumea);
+
+	// Makemake
+	var makemake = new SpaceObject( 0.36*extent, "img/aster_texture.jpg", 18, 0xffffff ).init();
+	scene.add(makemake);
+
+	// Eris
+	var eris = new SpaceObject( 1.2*extent, "img/aster_texture.jpg", 18, 0xffffff ).init();
+	scene.add(eris);
 
 	// Markers ----
 
@@ -155,14 +178,17 @@ body {
 	// Uranus marker
 	scene.add( uranusMarker );
 
-	// Neptun marker
-	scene.add( neptunMarker );
+	// Neptune marker
+	scene.add( neptuneMarker );
 
 	// Pluto marker
 	scene.add( plutoMarker );
 
 	// Other planets marker
-	scene.add( planetMarker );
+	scene.add( haumeaMarker );
+	scene.add( makemakeMarker );
+	scene.add( erisMarker );
+
 
 
 	// RENDER -----------------------
@@ -177,6 +203,11 @@ body {
 	// ANIMATION -----------------------
 	function animate(){		
 		requestAnimationFrame(animate);
+
+		//Ecliptic position
+		eclipticLine.rotation.x = Math.PI/2;
+		eclipticUpPlane.rotation.x = Math.PI/2;
+		eclipticDownPlane.rotation.x = -Math.PI/2;
 
 		//Objects position
         
@@ -218,7 +249,37 @@ body {
 		saturn.position.z   = Math.cos(t*0.00001)*(9.54*au);
 		saturn.rotation.y  += 0.01;
 
-		//Markets animate
+		// Uranus position
+		uranus.position.x   = -Math.sin(t*0.00001)*(19.22*au);
+		uranus.position.z   = Math.cos(t*0.00001)*(19.22*au);
+		uranus.rotation.y  += 0.01;
+
+		// Neptune position
+		neptune.position.x   = -Math.sin(t*0.00001)*(30.06*au);
+		neptune.position.z   = Math.cos(t*0.00001)*(30.06*au);
+		neptune.rotation.y  += 0.01;
+
+		// Pluto position
+		pluto.position.x   = -Math.sin(t*0.00001)*(39.2*au);
+		pluto.position.z   = Math.cos(t*0.00001)*(39.2*au);
+		pluto.rotation.y  += 0.01;
+
+		// Haumea position
+		haumea.position.x   = -Math.sin(t*0.00001)*(42.1*au);
+		haumea.position.z   = Math.cos(t*0.00001)*(42.1*au);
+		haumea.rotation.y  += 0.01;
+
+		// Makemake position
+		makemake.position.x   = -Math.sin(t*0.00001)*(45.2*au);
+		makemake.position.z   = Math.cos(t*0.00001)*(45.2*au);
+		makemake.rotation.y  += 0.01;
+
+		// Eris position
+		eris.position.x   = -Math.sin(t*0.00001)*(68.03*au);
+		eris.position.z   = Math.cos(t*0.00001)*(68.03*au);
+		eris.rotation.y  += 0.01;
+
+		//Markets animation
 
 		// Sun marker
 		var sunDistance = Math.sqrt(Math.pow((camera.position.x - sun.position.x), 2) + Math.pow((camera.position.y - sun.position.y), 2) + Math.pow((camera.position.z - sun.position.z), 2));
@@ -276,7 +337,7 @@ body {
 
         // Jupiter marker
 		var jupiterDistance = Math.sqrt(Math.pow((camera.position.x - jupiter.position.x), 2) + Math.pow((camera.position.y - jupiter.position.y), 2) + Math.pow((camera.position.z - jupiter.position.z), 2));
-		jupiterMarker.scale.set(jupiterDistance*markerScale, jupiterDistance*markerScale, jupiterDistance*markerScale);
+		jupiterMarker.scale.set(jupiterDistance*markerScale*0.7, jupiterDistance*markerScale*0.7, jupiterDistance*markerScale*0.7);
 		jupiterMarker.position.x = jupiter.position.x;
         jupiterMarker.position.y = jupiter.position.y;
         jupiterMarker.position.z = jupiter.position.z;
@@ -291,7 +352,60 @@ body {
         saturnMarker.position.z = saturn.position.z;
         saturnMarker.rotation.z = saturn.rotation.z;
         saturnMarker.lookAt(camera.position);
-        
+
+        // Uranus marker
+		var uranusDistance = Math.sqrt(Math.pow((camera.position.x - uranus.position.x), 2) + Math.pow((camera.position.y - uranus.position.y), 2) + Math.pow((camera.position.z - uranus.position.z), 2));
+		uranusMarker.scale.set(uranusDistance*markerScale, uranusDistance*markerScale, uranusDistance*markerScale);
+		uranusMarker.position.x = uranus.position.x;
+        uranusMarker.position.y = uranus.position.y;
+        uranusMarker.position.z = uranus.position.z;
+        uranusMarker.rotation.z = camera.rotation.z;
+        uranusMarker.lookAt(camera.position);
+
+		// Neptune marker
+		var neptuneDistance = Math.sqrt(Math.pow((camera.position.x - neptune.position.x), 2) + Math.pow((camera.position.y - neptune.position.y), 2) + Math.pow((camera.position.z - neptune.position.z), 2));
+		neptuneMarker.scale.set(neptuneDistance*markerScale*0.8, neptuneDistance*markerScale*0.8, neptuneDistance*markerScale*0.8);
+		neptuneMarker.position.x = neptune.position.x;
+        neptuneMarker.position.y = neptune.position.y;
+        neptuneMarker.position.z = neptune.position.z;
+        neptuneMarker.rotation.z = camera.rotation.z;
+        neptuneMarker.lookAt(camera.position); 
+
+        // Pluto marker
+		var plutoDistance = Math.sqrt(Math.pow((camera.position.x - pluto.position.x), 2) + Math.pow((camera.position.y - pluto.position.y), 2) + Math.pow((camera.position.z - pluto.position.z), 2));
+		plutoMarker.scale.set(plutoDistance*markerScale*0.8, plutoDistance*markerScale*0.8, plutoDistance*markerScale*0.8);
+		plutoMarker.position.x = pluto.position.x;
+        plutoMarker.position.y = pluto.position.y;
+        plutoMarker.position.z = pluto.position.z;
+        plutoMarker.rotation.z = camera.rotation.z;
+        plutoMarker.lookAt(camera.position);
+
+        // Haumea marker
+		var haumeaDistance = Math.sqrt(Math.pow((camera.position.x - haumea.position.x), 2) + Math.pow((camera.position.y - haumea.position.y), 2) + Math.pow((camera.position.z - haumea.position.z), 2));
+		haumeaMarker.scale.set(haumeaDistance*markerScale, haumeaDistance*markerScale, haumeaDistance*markerScale);
+		haumeaMarker.position.x = haumea.position.x;
+        haumeaMarker.position.y = haumea.position.y;
+        haumeaMarker.position.z = haumea.position.z;
+        haumeaMarker.rotation.z = camera.rotation.z;
+        haumeaMarker.lookAt(camera.position);
+
+        // Makemake marker
+		var makemakeDistance = Math.sqrt(Math.pow((camera.position.x - makemake.position.x), 2) + Math.pow((camera.position.y - makemake.position.y), 2) + Math.pow((camera.position.z - makemake.position.z), 2));
+		makemakeMarker.scale.set(makemakeDistance*markerScale, makemakeDistance*markerScale, makemakeDistance*markerScale);
+		makemakeMarker.position.x = makemake.position.x;
+        makemakeMarker.position.y = makemake.position.y;
+        makemakeMarker.position.z = makemake.position.z;
+        makemakeMarker.rotation.z = camera.rotation.z;
+        makemakeMarker.lookAt(camera.position);
+
+        // Eris marker
+		var erisDistance = Math.sqrt(Math.pow((camera.position.x - eris.position.x), 2) + Math.pow((camera.position.y - eris.position.y), 2) + Math.pow((camera.position.z - eris.position.z), 2));
+		erisMarker.scale.set(erisDistance*markerScale, erisDistance*markerScale, erisDistance*markerScale);
+		erisMarker.position.x = eris.position.x;
+        erisMarker.position.y = eris.position.y;
+        erisMarker.position.z = eris.position.z;
+        erisMarker.rotation.z = camera.rotation.z;
+        erisMarker.lookAt(camera.position);
 
         // Camera position
 		controls.update( clock.getDelta() );

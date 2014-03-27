@@ -119,31 +119,24 @@
 	color: markerColor
 	});
 	var ceresMarkerGeometry = new THREE.Geometry();
-	ceresMarkerGeometry.vertices.push( new THREE.Vector3( -4, 6, 0 ) );
-	ceresMarkerGeometry.vertices.push( new THREE.Vector3( -3, 4, 0 ) );
-	ceresMarkerGeometry.vertices.push( new THREE.Vector3( -1, 3, 0 ) );
-	ceresMarkerGeometry.vertices.push( new THREE.Vector3( -3, 2, 0 ) );
-	ceresMarkerGeometry.vertices.push( new THREE.Vector3( -4, 0, 0 ) );
-	ceresMarkerGeometry.vertices.push( new THREE.Vector3( -3, -2, 0 ) );
-	ceresMarkerGeometry.vertices.push( new THREE.Vector3( -1, -3, 0 ) );
-	ceresMarkerGeometry.vertices.push( new THREE.Vector3( 0, -3, 0 ) );
-	ceresMarkerGeometry.vertices.push( new THREE.Vector3( 0, -4, 0 ) );
-	ceresMarkerGeometry.vertices.push( new THREE.Vector3( -1, -4, 0 ) );
-	ceresMarkerGeometry.vertices.push( new THREE.Vector3( 0, -4, 0 ) );
-	ceresMarkerGeometry.vertices.push( new THREE.Vector3( 1, -4, 0 ) );
-	ceresMarkerGeometry.vertices.push( new THREE.Vector3( 0, -4, 0 ) );
-	ceresMarkerGeometry.vertices.push( new THREE.Vector3( 0, -5, 0 ) );
-	ceresMarkerGeometry.vertices.push( new THREE.Vector3( 0, -3, 0 ) );
-	ceresMarkerGeometry.vertices.push( new THREE.Vector3( 1, -3, 0 ) );
-	ceresMarkerGeometry.vertices.push( new THREE.Vector3( 3, -2, 0 ) );
+	ceresMarkerGeometry.vertices.push( new THREE.Vector3( 0, 4, 0 ) );
+	ceresMarkerGeometry.vertices.push( new THREE.Vector3( 3, 3, 0 ) );
 	ceresMarkerGeometry.vertices.push( new THREE.Vector3( 4, 0, 0 ) );
-	ceresMarkerGeometry.vertices.push( new THREE.Vector3( 3, 2, 0 ) );
-	ceresMarkerGeometry.vertices.push( new THREE.Vector3( 1, 3, 0 ) );
-	ceresMarkerGeometry.vertices.push( new THREE.Vector3( -1, 3, 0 ) );
-	ceresMarkerGeometry.vertices.push( new THREE.Vector3( 1, 3, 0 ) );
-	ceresMarkerGeometry.vertices.push( new THREE.Vector3( 3, 4, 0 ) );
-	ceresMarkerGeometry.vertices.push( new THREE.Vector3( 4, 6, 0 ) );
-	
+	ceresMarkerGeometry.vertices.push( new THREE.Vector3( 3, -3, 0 ) );
+	ceresMarkerGeometry.vertices.push( new THREE.Vector3( 0, -4, 0 ) );
+	ceresMarkerGeometry.vertices.push( new THREE.Vector3( 0, -7, 0 ) );
+	ceresMarkerGeometry.vertices.push( new THREE.Vector3( 0, -6, 0 ) );
+	ceresMarkerGeometry.vertices.push( new THREE.Vector3( -1, -6, 0 ) );
+	ceresMarkerGeometry.vertices.push( new THREE.Vector3( 1, -6, 0 ) );
+	ceresMarkerGeometry.vertices.push( new THREE.Vector3( 0, -6, 0 ) );
+	ceresMarkerGeometry.vertices.push( new THREE.Vector3( 0, -4, 0 ) );
+	ceresMarkerGeometry.vertices.push( new THREE.Vector3( 3, -3, 0 ) );
+	ceresMarkerGeometry.vertices.push( new THREE.Vector3( 4, 0, 0 ) );
+	ceresMarkerGeometry.vertices.push( new THREE.Vector3( 3, 3, 0 ) );
+	ceresMarkerGeometry.vertices.push( new THREE.Vector3( 0, 4, 0 ) );
+	ceresMarkerGeometry.vertices.push( new THREE.Vector3( -3, 3, 0 ) );
+	ceresMarkerGeometry.vertices.push( new THREE.Vector3( -4, 0, 0 ) );
+
 	var ceresMarker = new THREE.Line( ceresMarkerGeometry, ceresMarkerMaterial );
 
 	// Jupiter marker
@@ -151,30 +144,22 @@
 	color: markerColor
 	});
 	var jupiterMarkerGeometry = new THREE.Geometry();
-	jupiterMarkerGeometry.vertices.push( new THREE.Vector3( -4, 6, 0 ) );
-	jupiterMarkerGeometry.vertices.push( new THREE.Vector3( -3, 4, 0 ) );
-	jupiterMarkerGeometry.vertices.push( new THREE.Vector3( -1, 3, 0 ) );
 	jupiterMarkerGeometry.vertices.push( new THREE.Vector3( -3, 2, 0 ) );
-	jupiterMarkerGeometry.vertices.push( new THREE.Vector3( -4, 0, 0 ) );
-	jupiterMarkerGeometry.vertices.push( new THREE.Vector3( -3, -2, 0 ) );
-	jupiterMarkerGeometry.vertices.push( new THREE.Vector3( -1, -3, 0 ) );
-	jupiterMarkerGeometry.vertices.push( new THREE.Vector3( 0, -3, 0 ) );
-	jupiterMarkerGeometry.vertices.push( new THREE.Vector3( 0, -4, 0 ) );
-	jupiterMarkerGeometry.vertices.push( new THREE.Vector3( -1, -4, 0 ) );
-	jupiterMarkerGeometry.vertices.push( new THREE.Vector3( 0, -4, 0 ) );
-	jupiterMarkerGeometry.vertices.push( new THREE.Vector3( 1, -4, 0 ) );
-	jupiterMarkerGeometry.vertices.push( new THREE.Vector3( 0, -4, 0 ) );
-	jupiterMarkerGeometry.vertices.push( new THREE.Vector3( 0, -5, 0 ) );
-	jupiterMarkerGeometry.vertices.push( new THREE.Vector3( 0, -3, 0 ) );
-	jupiterMarkerGeometry.vertices.push( new THREE.Vector3( 1, -3, 0 ) );
-	jupiterMarkerGeometry.vertices.push( new THREE.Vector3( 3, -2, 0 ) );
-	jupiterMarkerGeometry.vertices.push( new THREE.Vector3( 4, 0, 0 ) );
-	jupiterMarkerGeometry.vertices.push( new THREE.Vector3( 3, 2, 0 ) );
-	jupiterMarkerGeometry.vertices.push( new THREE.Vector3( 1, 3, 0 ) );
-	jupiterMarkerGeometry.vertices.push( new THREE.Vector3( -1, 3, 0 ) );
-	jupiterMarkerGeometry.vertices.push( new THREE.Vector3( 1, 3, 0 ) );
-	jupiterMarkerGeometry.vertices.push( new THREE.Vector3( 3, 4, 0 ) );
-	jupiterMarkerGeometry.vertices.push( new THREE.Vector3( 4, 6, 0 ) );
+	jupiterMarkerGeometry.vertices.push( new THREE.Vector3( -4, 4, 0 ) );
+	jupiterMarkerGeometry.vertices.push( new THREE.Vector3( -3, 6, 0 ) );
+	jupiterMarkerGeometry.vertices.push( new THREE.Vector3( -1, 7, 0 ) );
+	jupiterMarkerGeometry.vertices.push( new THREE.Vector3( 1, 7, 0 ) );
+	jupiterMarkerGeometry.vertices.push( new THREE.Vector3( 3, 6, 0 ) );
+	jupiterMarkerGeometry.vertices.push( new THREE.Vector3( 4, 4, 0 ) );
+	jupiterMarkerGeometry.vertices.push( new THREE.Vector3( 4, 3, 0 ) );
+	jupiterMarkerGeometry.vertices.push( new THREE.Vector3( 3, 1, 0 ) );
+	jupiterMarkerGeometry.vertices.push( new THREE.Vector3( 1, -2, 0 ) );
+	jupiterMarkerGeometry.vertices.push( new THREE.Vector3( -2, -4, 0 ) );
+	jupiterMarkerGeometry.vertices.push( new THREE.Vector3( -4, -5, 0 ) );
+	jupiterMarkerGeometry.vertices.push( new THREE.Vector3( 8, -5, 0 ) );
+	jupiterMarkerGeometry.vertices.push( new THREE.Vector3( 6, -5, 0 ) );
+	jupiterMarkerGeometry.vertices.push( new THREE.Vector3( 6, -8, 0 ) );
+	jupiterMarkerGeometry.vertices.push( new THREE.Vector3( 6, 7, 0 ) );
 	
 	var jupiterMarker = new THREE.Line( jupiterMarkerGeometry, jupiterMarkerMaterial );
 
@@ -183,31 +168,22 @@
 	color: markerColor
 	});
 	var saturnMarkerGeometry = new THREE.Geometry();
-	saturnMarkerGeometry.vertices.push( new THREE.Vector3( -4, 6, 0 ) );
-	saturnMarkerGeometry.vertices.push( new THREE.Vector3( -3, 4, 0 ) );
-	saturnMarkerGeometry.vertices.push( new THREE.Vector3( -1, 3, 0 ) );
-	saturnMarkerGeometry.vertices.push( new THREE.Vector3( -3, 2, 0 ) );
-	saturnMarkerGeometry.vertices.push( new THREE.Vector3( -4, 0, 0 ) );
-	saturnMarkerGeometry.vertices.push( new THREE.Vector3( -3, -2, 0 ) );
-	saturnMarkerGeometry.vertices.push( new THREE.Vector3( -1, -3, 0 ) );
-	saturnMarkerGeometry.vertices.push( new THREE.Vector3( 0, -3, 0 ) );
-	saturnMarkerGeometry.vertices.push( new THREE.Vector3( 0, -4, 0 ) );
-	saturnMarkerGeometry.vertices.push( new THREE.Vector3( -1, -4, 0 ) );
-	saturnMarkerGeometry.vertices.push( new THREE.Vector3( 0, -4, 0 ) );
-	saturnMarkerGeometry.vertices.push( new THREE.Vector3( 1, -4, 0 ) );
-	saturnMarkerGeometry.vertices.push( new THREE.Vector3( 0, -4, 0 ) );
-	saturnMarkerGeometry.vertices.push( new THREE.Vector3( 0, -5, 0 ) );
-	saturnMarkerGeometry.vertices.push( new THREE.Vector3( 0, -3, 0 ) );
-	saturnMarkerGeometry.vertices.push( new THREE.Vector3( 1, -3, 0 ) );
-	saturnMarkerGeometry.vertices.push( new THREE.Vector3( 3, -2, 0 ) );
-	saturnMarkerGeometry.vertices.push( new THREE.Vector3( 4, 0, 0 ) );
+	saturnMarkerGeometry.vertices.push( new THREE.Vector3( -2, 6, 0 ) );
+	saturnMarkerGeometry.vertices.push( new THREE.Vector3( -2, 5, 0 ) );
+	saturnMarkerGeometry.vertices.push( new THREE.Vector3( -4, 5, 0 ) );
+	saturnMarkerGeometry.vertices.push( new THREE.Vector3( 0, 5, 0 ) );
+	saturnMarkerGeometry.vertices.push( new THREE.Vector3( -2, 5, 0 ) );
+	saturnMarkerGeometry.vertices.push( new THREE.Vector3( -2, -5, 0 ) );
+	saturnMarkerGeometry.vertices.push( new THREE.Vector3( -2, 2, 0 ) );
+	saturnMarkerGeometry.vertices.push( new THREE.Vector3( 0, 3, 0 ) );
+	saturnMarkerGeometry.vertices.push( new THREE.Vector3( 2, 3, 0 ) );
 	saturnMarkerGeometry.vertices.push( new THREE.Vector3( 3, 2, 0 ) );
-	saturnMarkerGeometry.vertices.push( new THREE.Vector3( 1, 3, 0 ) );
-	saturnMarkerGeometry.vertices.push( new THREE.Vector3( -1, 3, 0 ) );
-	saturnMarkerGeometry.vertices.push( new THREE.Vector3( 1, 3, 0 ) );
-	saturnMarkerGeometry.vertices.push( new THREE.Vector3( 3, 4, 0 ) );
-	saturnMarkerGeometry.vertices.push( new THREE.Vector3( 4, 6, 0 ) );
-	
+	saturnMarkerGeometry.vertices.push( new THREE.Vector3( 3, 0, 0 ) );
+	saturnMarkerGeometry.vertices.push( new THREE.Vector3( 1, -3, 0 ) );
+	saturnMarkerGeometry.vertices.push( new THREE.Vector3( 0, -5, 0 ) );
+	saturnMarkerGeometry.vertices.push( new THREE.Vector3( 1, -6, 0 ) );
+	saturnMarkerGeometry.vertices.push( new THREE.Vector3( 2, -5, 0 ) );
+		
 	var saturnMarker = new THREE.Line( saturnMarkerGeometry, saturnMarkerMaterial );
 
 	// Uranus marker
@@ -215,94 +191,77 @@
 	color: markerColor
 	});
 	var uranusMarkerGeometry = new THREE.Geometry();
-	uranusMarkerGeometry.vertices.push( new THREE.Vector3( -4, 6, 0 ) );
-	uranusMarkerGeometry.vertices.push( new THREE.Vector3( -3, 4, 0 ) );
-	uranusMarkerGeometry.vertices.push( new THREE.Vector3( -1, 3, 0 ) );
-	uranusMarkerGeometry.vertices.push( new THREE.Vector3( -3, 2, 0 ) );
+	uranusMarkerGeometry.vertices.push( new THREE.Vector3( -1, 6, 0 ) );
+	uranusMarkerGeometry.vertices.push( new THREE.Vector3( 0, 7, 0 ) );
+	uranusMarkerGeometry.vertices.push( new THREE.Vector3( 1, 6, 0 ) );
+	uranusMarkerGeometry.vertices.push( new THREE.Vector3( 0, 7, 0 ) );
+	uranusMarkerGeometry.vertices.push( new THREE.Vector3( 0, 4, 0 ) );
+	uranusMarkerGeometry.vertices.push( new THREE.Vector3( -3, 3, 0 ) );
 	uranusMarkerGeometry.vertices.push( new THREE.Vector3( -4, 0, 0 ) );
-	uranusMarkerGeometry.vertices.push( new THREE.Vector3( -3, -2, 0 ) );
-	uranusMarkerGeometry.vertices.push( new THREE.Vector3( -1, -3, 0 ) );
-	uranusMarkerGeometry.vertices.push( new THREE.Vector3( 0, -3, 0 ) );
+	uranusMarkerGeometry.vertices.push( new THREE.Vector3( -3, -3, 0 ) );
 	uranusMarkerGeometry.vertices.push( new THREE.Vector3( 0, -4, 0 ) );
-	uranusMarkerGeometry.vertices.push( new THREE.Vector3( -1, -4, 0 ) );
-	uranusMarkerGeometry.vertices.push( new THREE.Vector3( 0, -4, 0 ) );
-	uranusMarkerGeometry.vertices.push( new THREE.Vector3( 1, -4, 0 ) );
-	uranusMarkerGeometry.vertices.push( new THREE.Vector3( 0, -4, 0 ) );
-	uranusMarkerGeometry.vertices.push( new THREE.Vector3( 0, -5, 0 ) );
-	uranusMarkerGeometry.vertices.push( new THREE.Vector3( 0, -3, 0 ) );
-	uranusMarkerGeometry.vertices.push( new THREE.Vector3( 1, -3, 0 ) );
-	uranusMarkerGeometry.vertices.push( new THREE.Vector3( 3, -2, 0 ) );
+	uranusMarkerGeometry.vertices.push( new THREE.Vector3( 3, -3, 0 ) );
 	uranusMarkerGeometry.vertices.push( new THREE.Vector3( 4, 0, 0 ) );
-	uranusMarkerGeometry.vertices.push( new THREE.Vector3( 3, 2, 0 ) );
-	uranusMarkerGeometry.vertices.push( new THREE.Vector3( 1, 3, 0 ) );
-	uranusMarkerGeometry.vertices.push( new THREE.Vector3( -1, 3, 0 ) );
-	uranusMarkerGeometry.vertices.push( new THREE.Vector3( 1, 3, 0 ) );
-	uranusMarkerGeometry.vertices.push( new THREE.Vector3( 3, 4, 0 ) );
-	uranusMarkerGeometry.vertices.push( new THREE.Vector3( 4, 6, 0 ) );
+	uranusMarkerGeometry.vertices.push( new THREE.Vector3( 3, 3, 0 ) );
+	uranusMarkerGeometry.vertices.push( new THREE.Vector3( 0, 4, 0 ) );
 	
 	var uranusMarker = new THREE.Line( uranusMarkerGeometry, uranusMarkerMaterial );
 
-	// Neptun marker
-	var neptunMarkerMaterial = new THREE.LineBasicMaterial({
+	// Neptune marker
+	var neptuneMarkerMaterial = new THREE.LineBasicMaterial({
 	color: markerColor
 	});
-	var neptunMarkerGeometry = new THREE.Geometry();
-	neptunMarkerGeometry.vertices.push( new THREE.Vector3( -4, 6, 0 ) );
-	neptunMarkerGeometry.vertices.push( new THREE.Vector3( -3, 4, 0 ) );
-	neptunMarkerGeometry.vertices.push( new THREE.Vector3( -1, 3, 0 ) );
-	neptunMarkerGeometry.vertices.push( new THREE.Vector3( -3, 2, 0 ) );
-	neptunMarkerGeometry.vertices.push( new THREE.Vector3( -4, 0, 0 ) );
-	neptunMarkerGeometry.vertices.push( new THREE.Vector3( -3, -2, 0 ) );
-	neptunMarkerGeometry.vertices.push( new THREE.Vector3( -1, -3, 0 ) );
-	neptunMarkerGeometry.vertices.push( new THREE.Vector3( 0, -3, 0 ) );
-	neptunMarkerGeometry.vertices.push( new THREE.Vector3( 0, -4, 0 ) );
-	neptunMarkerGeometry.vertices.push( new THREE.Vector3( -1, -4, 0 ) );
-	neptunMarkerGeometry.vertices.push( new THREE.Vector3( 0, -4, 0 ) );
-	neptunMarkerGeometry.vertices.push( new THREE.Vector3( 1, -4, 0 ) );
-	neptunMarkerGeometry.vertices.push( new THREE.Vector3( 0, -4, 0 ) );
-	neptunMarkerGeometry.vertices.push( new THREE.Vector3( 0, -5, 0 ) );
-	neptunMarkerGeometry.vertices.push( new THREE.Vector3( 0, -3, 0 ) );
-	neptunMarkerGeometry.vertices.push( new THREE.Vector3( 1, -3, 0 ) );
-	neptunMarkerGeometry.vertices.push( new THREE.Vector3( 3, -2, 0 ) );
-	neptunMarkerGeometry.vertices.push( new THREE.Vector3( 4, 0, 0 ) );
-	neptunMarkerGeometry.vertices.push( new THREE.Vector3( 3, 2, 0 ) );
-	neptunMarkerGeometry.vertices.push( new THREE.Vector3( 1, 3, 0 ) );
-	neptunMarkerGeometry.vertices.push( new THREE.Vector3( -1, 3, 0 ) );
-	neptunMarkerGeometry.vertices.push( new THREE.Vector3( 1, 3, 0 ) );
-	neptunMarkerGeometry.vertices.push( new THREE.Vector3( 3, 4, 0 ) );
-	neptunMarkerGeometry.vertices.push( new THREE.Vector3( 4, 6, 0 ) );
-	
-	var neptunMarker = new THREE.Line( neptunMarkerGeometry, neptunMarkerMaterial );
+	var neptuneMarkerGeometry = new THREE.Geometry();
+	neptuneMarkerGeometry.vertices.push( new THREE.Vector3( -3, 7, 0 ) );
+	neptuneMarkerGeometry.vertices.push( new THREE.Vector3( -2, 7, 0 ) );
+	neptuneMarkerGeometry.vertices.push( new THREE.Vector3( -2, 6, 0 ) );
+	neptuneMarkerGeometry.vertices.push( new THREE.Vector3( -2, 7, 0 ) );
+	neptuneMarkerGeometry.vertices.push( new THREE.Vector3( -3, 6, 0 ) );
+	neptuneMarkerGeometry.vertices.push( new THREE.Vector3( -4, 4, 0 ) );
+	neptuneMarkerGeometry.vertices.push( new THREE.Vector3( -5, 1, 0 ) );
+	neptuneMarkerGeometry.vertices.push( new THREE.Vector3( -4, -2, 0 ) );
+	neptuneMarkerGeometry.vertices.push( new THREE.Vector3( -1, -3, 0 ) );
+	neptuneMarkerGeometry.vertices.push( new THREE.Vector3( 0, -3, 0 ) );
+	neptuneMarkerGeometry.vertices.push( new THREE.Vector3( 0, 6, 0 ) );
+	neptuneMarkerGeometry.vertices.push( new THREE.Vector3( -1, 5, 0 ) );
+	neptuneMarkerGeometry.vertices.push( new THREE.Vector3( 0, 6, 0 ) );
+	neptuneMarkerGeometry.vertices.push( new THREE.Vector3( 1, 5, 0 ) );
+	neptuneMarkerGeometry.vertices.push( new THREE.Vector3( 0, 6, 0 ) );
+	neptuneMarkerGeometry.vertices.push( new THREE.Vector3( 0, -5, 0 ) );
+	neptuneMarkerGeometry.vertices.push( new THREE.Vector3( 0, -4, 0 ) );
+	neptuneMarkerGeometry.vertices.push( new THREE.Vector3( -2, -4, 0 ) );
+	neptuneMarkerGeometry.vertices.push( new THREE.Vector3( 2, -4, 0 ) );
+	neptuneMarkerGeometry.vertices.push( new THREE.Vector3( 0, -4, 0 ) );
+	neptuneMarkerGeometry.vertices.push( new THREE.Vector3( 0, -3, 0 ) );
+	neptuneMarkerGeometry.vertices.push( new THREE.Vector3( 1, -3, 0 ) );
+	neptuneMarkerGeometry.vertices.push( new THREE.Vector3( 4, -2, 0 ) );
+	neptuneMarkerGeometry.vertices.push( new THREE.Vector3( 5, 1, 0 ) );
+	neptuneMarkerGeometry.vertices.push( new THREE.Vector3( 4, 4, 0 ) );
+	neptuneMarkerGeometry.vertices.push( new THREE.Vector3( 3, 6, 0 ) );
+	neptuneMarkerGeometry.vertices.push( new THREE.Vector3( 2, 7, 0 ) );
+	neptuneMarkerGeometry.vertices.push( new THREE.Vector3( 2, 6, 0 ) );
+	neptuneMarkerGeometry.vertices.push( new THREE.Vector3( 2, 7, 0 ) );
+	neptuneMarkerGeometry.vertices.push( new THREE.Vector3( 3, 7, 0 ) );
+		
+	var neptuneMarker = new THREE.Line( neptuneMarkerGeometry, neptuneMarkerMaterial );
 
 	// Pluto marker
 	var plutoMarkerMaterial = new THREE.LineBasicMaterial({
 	color: markerColor
 	});
 	var plutoMarkerGeometry = new THREE.Geometry();
-	plutoMarkerGeometry.vertices.push( new THREE.Vector3( -4, 6, 0 ) );
-	plutoMarkerGeometry.vertices.push( new THREE.Vector3( -3, 4, 0 ) );
-	plutoMarkerGeometry.vertices.push( new THREE.Vector3( -1, 3, 0 ) );
-	plutoMarkerGeometry.vertices.push( new THREE.Vector3( -3, 2, 0 ) );
-	plutoMarkerGeometry.vertices.push( new THREE.Vector3( -4, 0, 0 ) );
-	plutoMarkerGeometry.vertices.push( new THREE.Vector3( -3, -2, 0 ) );
-	plutoMarkerGeometry.vertices.push( new THREE.Vector3( -1, -3, 0 ) );
-	plutoMarkerGeometry.vertices.push( new THREE.Vector3( 0, -3, 0 ) );
-	plutoMarkerGeometry.vertices.push( new THREE.Vector3( 0, -4, 0 ) );
-	plutoMarkerGeometry.vertices.push( new THREE.Vector3( -1, -4, 0 ) );
-	plutoMarkerGeometry.vertices.push( new THREE.Vector3( 0, -4, 0 ) );
-	plutoMarkerGeometry.vertices.push( new THREE.Vector3( 1, -4, 0 ) );
-	plutoMarkerGeometry.vertices.push( new THREE.Vector3( 0, -4, 0 ) );
-	plutoMarkerGeometry.vertices.push( new THREE.Vector3( 0, -5, 0 ) );
-	plutoMarkerGeometry.vertices.push( new THREE.Vector3( 0, -3, 0 ) );
-	plutoMarkerGeometry.vertices.push( new THREE.Vector3( 1, -3, 0 ) );
-	plutoMarkerGeometry.vertices.push( new THREE.Vector3( 3, -2, 0 ) );
+	plutoMarkerGeometry.vertices.push( new THREE.Vector3( 0, 6, 0 ) );
+	plutoMarkerGeometry.vertices.push( new THREE.Vector3( 2, 6, 0 ) );
+	plutoMarkerGeometry.vertices.push( new THREE.Vector3( 4, 5, 0 ) );
+	plutoMarkerGeometry.vertices.push( new THREE.Vector3( 5, 3, 0 ) );
+	plutoMarkerGeometry.vertices.push( new THREE.Vector3( 5, 2, 0 ) );
 	plutoMarkerGeometry.vertices.push( new THREE.Vector3( 4, 0, 0 ) );
-	plutoMarkerGeometry.vertices.push( new THREE.Vector3( 3, 2, 0 ) );
-	plutoMarkerGeometry.vertices.push( new THREE.Vector3( 1, 3, 0 ) );
-	plutoMarkerGeometry.vertices.push( new THREE.Vector3( -1, 3, 0 ) );
-	plutoMarkerGeometry.vertices.push( new THREE.Vector3( 1, 3, 0 ) );
-	plutoMarkerGeometry.vertices.push( new THREE.Vector3( 3, 4, 0 ) );
-	plutoMarkerGeometry.vertices.push( new THREE.Vector3( 4, 6, 0 ) );
+	plutoMarkerGeometry.vertices.push( new THREE.Vector3( 2, -1, 0 ) );
+	plutoMarkerGeometry.vertices.push( new THREE.Vector3( 0, -1, 0 ) );
+	plutoMarkerGeometry.vertices.push( new THREE.Vector3( 0, -7, 0 ) );
+	plutoMarkerGeometry.vertices.push( new THREE.Vector3( 5, -7, 0 ) );
+	plutoMarkerGeometry.vertices.push( new THREE.Vector3( 0, -7, 0 ) );
+	plutoMarkerGeometry.vertices.push( new THREE.Vector3( 0, 6, 0 ) );
 	
 	var plutoMarker = new THREE.Line( plutoMarkerGeometry, plutoMarkerMaterial );
 
@@ -311,29 +270,34 @@
 	color: markerColor
 	});
 	var planetMarkerGeometry = new THREE.Geometry();
-	planetMarkerGeometry.vertices.push( new THREE.Vector3( -4, 6, 0 ) );
-	planetMarkerGeometry.vertices.push( new THREE.Vector3( -3, 4, 0 ) );
-	planetMarkerGeometry.vertices.push( new THREE.Vector3( -1, 3, 0 ) );
-	planetMarkerGeometry.vertices.push( new THREE.Vector3( -3, 2, 0 ) );
 	planetMarkerGeometry.vertices.push( new THREE.Vector3( -4, 0, 0 ) );
-	planetMarkerGeometry.vertices.push( new THREE.Vector3( -3, -2, 0 ) );
-	planetMarkerGeometry.vertices.push( new THREE.Vector3( -1, -3, 0 ) );
-	planetMarkerGeometry.vertices.push( new THREE.Vector3( 0, -3, 0 ) );
-	planetMarkerGeometry.vertices.push( new THREE.Vector3( 0, -4, 0 ) );
-	planetMarkerGeometry.vertices.push( new THREE.Vector3( -1, -4, 0 ) );
-	planetMarkerGeometry.vertices.push( new THREE.Vector3( 0, -4, 0 ) );
-	planetMarkerGeometry.vertices.push( new THREE.Vector3( 1, -4, 0 ) );
-	planetMarkerGeometry.vertices.push( new THREE.Vector3( 0, -4, 0 ) );
-	planetMarkerGeometry.vertices.push( new THREE.Vector3( 0, -5, 0 ) );
-	planetMarkerGeometry.vertices.push( new THREE.Vector3( 0, -3, 0 ) );
-	planetMarkerGeometry.vertices.push( new THREE.Vector3( 1, -3, 0 ) );
-	planetMarkerGeometry.vertices.push( new THREE.Vector3( 3, -2, 0 ) );
+	planetMarkerGeometry.vertices.push( new THREE.Vector3( 0, 6, 0 ) );
 	planetMarkerGeometry.vertices.push( new THREE.Vector3( 4, 0, 0 ) );
-	planetMarkerGeometry.vertices.push( new THREE.Vector3( 3, 2, 0 ) );
-	planetMarkerGeometry.vertices.push( new THREE.Vector3( 1, 3, 0 ) );
-	planetMarkerGeometry.vertices.push( new THREE.Vector3( -1, 3, 0 ) );
-	planetMarkerGeometry.vertices.push( new THREE.Vector3( 1, 3, 0 ) );
-	planetMarkerGeometry.vertices.push( new THREE.Vector3( 3, 4, 0 ) );
-	planetMarkerGeometry.vertices.push( new THREE.Vector3( 4, 6, 0 ) );
+	planetMarkerGeometry.vertices.push( new THREE.Vector3( 0, -6, 0 ) );
+	planetMarkerGeometry.vertices.push( new THREE.Vector3( -4, 0, 0 ) );
 	
 	var planetMarker = new THREE.Line( planetMarkerGeometry, planetMarkerMaterial );
+
+	// Haumea marker
+	var haumeaMarkerMaterial = new THREE.LineBasicMaterial({
+	color: markerColor
+	});
+	var haumeaMarkerGeometry = planetMarkerGeometry;
+	
+	var haumeaMarker = new THREE.Line( haumeaMarkerGeometry, haumeaMarkerMaterial );
+
+	// Makemake marker
+	var makemakeMarkerMaterial = new THREE.LineBasicMaterial({
+	color: markerColor
+	});
+	var makemakeMarkerGeometry = planetMarkerGeometry;;
+
+	var makemakeMarker = new THREE.Line( makemakeMarkerGeometry, makemakeMarkerMaterial );
+	
+	// Eris marker
+	var erisMarkerMaterial = new THREE.LineBasicMaterial({
+	color: markerColor
+	});
+	var erisMarkerGeometry = planetMarkerGeometry;;
+
+	var erisMarker = new THREE.Line( erisMarkerGeometry, erisMarkerMaterial );
