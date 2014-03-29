@@ -1,6 +1,6 @@
     //Marker color
     var markerColor = 0xff2a00;
-    var markerScale = 0.002;
+    var markerScale = 0.001;
 
     // Sun marker
 	var sunMarkerMaterial = new THREE.LineBasicMaterial({
