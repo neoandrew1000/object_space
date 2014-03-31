@@ -3,7 +3,7 @@
     var markerScale = 0.001;
 
     // Sun marker
-	var sunMarkerMaterial = new THREE.LineBasicMaterial({
+    var sunMarkerMaterial = new THREE.LineBasicMaterial({
 	color: markerColor
 	});
 	var sunMarkerGeometry = new THREE.Geometry();
